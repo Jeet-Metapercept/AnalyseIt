@@ -50,7 +50,17 @@ See the accompanying license.txt file for applicable licenses.
     <aliases>
       <alias name="Courier">Monospaced</alias>
     </aliases>
-
+          <!--Custom add-->
+    <aliases>
+      <alias name="Apple">Myriad</alias>
+    </aliases>
+    
+    <logical-font name="Myriad">
+      <physical-font char-set="default">
+        <font-face>Myriad Set Pro, Myriad Pro</font-face>
+      </physical-font>
+    </logical-font>
+          <!--end-->
     <!-- OXYGEN PATCH START  Set fallback fonts for Asian and RTL languages. -->
     <logical-font name="Sans">
       <physical-font char-set="default">

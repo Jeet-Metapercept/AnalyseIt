@@ -99,6 +99,7 @@ See the accompanying license.txt file for applicable licenses.
                     <fo:flow flow-name="xsl-region-body">
                         <fo:block xsl:use-attribute-sets="__frontmatter">
                             <!-- set the title -->
+				                 					 
                             <fo:block xsl:use-attribute-sets="__frontmatter__title">
                                 <xsl:choose>
                                     <xsl:when test="//*[contains(@class, ' map/map ')]/@title">

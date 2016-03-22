@@ -78,17 +78,28 @@ See the accompanying license.txt file for applicable licenses.
                               <xsl:call-template name="generate-toc-id"/>
                             </xsl:attribute>
                             <xsl:apply-templates select="$mapTopicref" mode="tocPrefix"/>
+                              <!--Custom add-->
+                              <fo:inline xsl:use-attribute-sets="__toc__page-number">
+                                  <!--<fo:leader xsl:use-attribute-sets="__toc__leader"/>-->
+                                  <fo:page-number-citation>
+                                      <xsl:attribute name="ref-id">
+                                          <xsl:call-template name="generate-toc-id"/>
+                                      </xsl:attribute>
+                                  </fo:page-number-citation>
+                              </fo:inline>
+                            <!--end-->  
                             <fo:inline xsl:use-attribute-sets="__toc__title">
+                                <fo:leader xsl:use-attribute-sets="__toc__leader"/>
                                 <xsl:call-template name="getNavTitle" />
                             </fo:inline>
-                            <fo:inline xsl:use-attribute-sets="__toc__page-number">
+    <!--  default -->           <!--<fo:inline xsl:use-attribute-sets="__toc__page-number">
                                 <fo:leader xsl:use-attribute-sets="__toc__leader"/>
                                 <fo:page-number-citation>
                                   <xsl:attribute name="ref-id">
                                     <xsl:call-template name="generate-toc-id"/>
                                   </xsl:attribute>
                                 </fo:page-number-citation>
-                            </fo:inline>
+                            </fo:inline>-->
                         </fo:basic-link>
                         </xsl:variable>
                         <xsl:choose>

@@ -34,7 +34,32 @@ See the accompanying license.txt file for applicable licenses.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:fo="http://www.w3.org/1999/XSL/Format"
     version="2.0">
-
+  
+  <!--Custom add           page margins-->
+  <xsl:variable name="page-margin-top">20mm</xsl:variable>
+  <!--<xsl:variable name="page-margin-top">5mm</xsl:variable>-->
+  <!--end-->
+    
+ <!--custom add-->
+  <xsl:attribute-set name="odd__footer__image">
+    <xsl:attribute name="top">10pt</xsl:attribute>
+    <xsl:attribute name="position">absolute</xsl:attribute>
+    <xsl:attribute name="right">-25pt
+      <!--<xsl:value-of select="$page-margins"/>-->
+    </xsl:attribute>
+    <xsl:attribute name="text-align">end</xsl:attribute>
+     </xsl:attribute-set>
+  
+  
+  <xsl:attribute-set name="even__footer__image">
+    <xsl:attribute name="top">10pt</xsl:attribute>
+    <xsl:attribute name="position">absolute</xsl:attribute>
+    <xsl:attribute name="left">10pt
+      <!--<xsl:value-of select="$page-margins"/>-->
+    </xsl:attribute>
+    <xsl:attribute name="text-align">start</xsl:attribute>
+  </xsl:attribute-set>
+      <!--end-->
   <xsl:attribute-set name="odd__header">
     <xsl:attribute name="text-align">end</xsl:attribute>
     <xsl:attribute name="end-indent">10pt</xsl:attribute>
@@ -49,16 +74,26 @@ See the accompanying license.txt file for applicable licenses.
   </xsl:attribute-set>
 
   <xsl:attribute-set name="odd__footer">
-    <xsl:attribute name="text-align">end</xsl:attribute>
-    <xsl:attribute name="end-indent">10pt</xsl:attribute>
-    <xsl:attribute name="space-after">10pt</xsl:attribute>
+    <!--custom add-->
+   <!-- <xsl:attribute name="padding-bottom">0.12in</xsl:attribute>
+    <xsl:attribute name="end-indent">40pt</xsl:attribute>
+    <xsl:attribute name="space-after">20pt</xsl:attribute>
     <xsl:attribute name="space-after.conditionality">retain</xsl:attribute>
+    <xsl:attribute name="text-align">end</xsl:attribute>-->
+    
+    <!--<xsl:attribute name="text-align">start</xsl:attribute>
+    <xsl:attribute name="end-indent">10pt</xsl:attribute>
+    <xsl:attribute name="space-after">15pt</xsl:attribute>
+    <xsl:attribute name="space-after.conditionality">retain</xsl:attribute>-->
   </xsl:attribute-set>
 
   <xsl:attribute-set name="even__footer">
-    <xsl:attribute name="start-indent">10pt</xsl:attribute>
-    <xsl:attribute name="space-after">10pt</xsl:attribute>
-    <xsl:attribute name="space-after.conditionality">retain</xsl:attribute>
+    <!--custom add-->
+    
+    <!--<xsl:attribute name="text-align">start</xsl:attribute>
+    <xsl:attribute name="end-indent">10pt</xsl:attribute>
+    <xsl:attribute name="space-after">15pt</xsl:attribute>
+    <xsl:attribute name="space-after.conditionality">retain</xsl:attribute>-->
   </xsl:attribute-set>
   
   <xsl:attribute-set name="pagenum">
@@ -66,16 +101,37 @@ See the accompanying license.txt file for applicable licenses.
   </xsl:attribute-set>
 
 
-    <xsl:attribute-set name="__body__odd__footer" use-attribute-sets="odd__footer">
-    </xsl:attribute-set>
+  <xsl:attribute-set name="__body__odd__footer"> <!--use-attribute-sets="odd__footer">-->
+    <!--Custom add-->
+    <xsl:attribute name="padding-bottom">0.12in</xsl:attribute>
+    <xsl:attribute name="end-indent">40pt</xsl:attribute>
+    <xsl:attribute name="space-after">9pt</xsl:attribute>
+    <xsl:attribute name="space-after.conditionality">retain</xsl:attribute>
+    <xsl:attribute name="text-align">end</xsl:attribute>
+    <!--end-->
+     </xsl:attribute-set>
+
+<!--Custom add-->
+  <xsl:attribute-set name="__body__footer__text">
+    <xsl:attribute name="text-align">center</xsl:attribute>
+    <xsl:attribute name="color">#888</xsl:attribute>
+  </xsl:attribute-set>
+ <!--end-->
 
     <xsl:attribute-set name="__body__odd__footer__heading">
     </xsl:attribute-set>
 
-    <xsl:attribute-set name="__body__odd__footer__pagenum" use-attribute-sets="pagenum">
+  <xsl:attribute-set name="__body__odd__footer__pagenum"  use-attribute-sets="pagenum">
     </xsl:attribute-set>
 
-    <xsl:attribute-set name="__body__even__footer" use-attribute-sets="even__footer">
+    <xsl:attribute-set name="__body__even__footer"><!-- use-attribute-sets="even__footer">-->
+      <!--Custom add-->
+      <xsl:attribute name="padding-bottom">0.12in</xsl:attribute>
+      <xsl:attribute name="start-indent">40pt</xsl:attribute>
+      <xsl:attribute name="space-after">9pt</xsl:attribute>
+      <xsl:attribute name="space-after.conditionality">retain</xsl:attribute>
+      <xsl:attribute name="text-align">start</xsl:attribute>
+      <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="__body__even__footer__heading">

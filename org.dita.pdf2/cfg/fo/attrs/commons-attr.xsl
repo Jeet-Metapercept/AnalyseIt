@@ -36,7 +36,13 @@ See the accompanying license.txt file for applicable licenses.
     xmlns:rx="http://www.renderx.com/XSL/Extensions"
     version="2.0">
 
-  <!-- common attribute sets -->
+    <!--Custom add-->
+    <!--<xsl:variable name="commons.text-indent" select="'70pt'"/>-->
+    <xsl:variable name="side-col-width" select="'70pt'"/>
+	<xsl:variable name="default-font-size">10pt</xsl:variable>
+    <!--end-->
+
+   <!-- common attribute sets -->
 
   <xsl:attribute-set name="common.border__top">
     <xsl:attribute name="border-top-style">solid</xsl:attribute>
@@ -65,21 +71,24 @@ See the accompanying license.txt file for applicable licenses.
   <xsl:attribute-set name="common.border" use-attribute-sets="common.border__top common.border__right common.border__bottom common.border__left"/>
 
   <xsl:attribute-set name="base-font">
+  <xsl:attribute name="font-family">Apple</xsl:attribute>
     <xsl:attribute name="font-size"><xsl:value-of select="$default-font-size"/></xsl:attribute>
   </xsl:attribute-set>
 
   <!-- titles -->
   <xsl:attribute-set name="common.title">
-    <xsl:attribute name="font-family">sans-serif</xsl:attribute>
+    <xsl:attribute name="font-family">Apple</xsl:attribute>
   </xsl:attribute-set>
 
   <!-- paragraph-like blocks -->
   <xsl:attribute-set name="common.block">
+  <xsl:attribute name="font-family">Apple</xsl:attribute>
     <xsl:attribute name="space-before">0.6em</xsl:attribute>
     <xsl:attribute name="space-after">0.6em</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="common.link">
+  <xsl:attribute name="font-family">Apple</xsl:attribute>
     <xsl:attribute name="color">blue</xsl:attribute>
     <xsl:attribute name="font-style">italic</xsl:attribute>
   </xsl:attribute-set>
@@ -87,16 +96,19 @@ See the accompanying license.txt file for applicable licenses.
   <!-- common element specific attribute sets -->
 
     <xsl:attribute-set name="tm">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="tm__content">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-size">75%</xsl:attribute>
         <xsl:attribute name="baseline-shift">20%</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="tm__content__service">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-size">40%</xsl:attribute>
         <xsl:attribute name="baseline-shift">50%</xsl:attribute>
     </xsl:attribute-set>
@@ -108,7 +120,11 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.title" use-attribute-sets="common.title">
-		<xsl:attribute name="border-bottom">3pt solid black</xsl:attribute>
+        <!--Custom add-->
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
+		<!--<xsl:attribute name="border-bottom">2pt solid black</xsl:attribute>-->    
         <xsl:attribute name="space-before">0pt</xsl:attribute>
         <xsl:attribute name="space-after">16.8pt</xsl:attribute>
         <xsl:attribute name="font-size">18pt</xsl:attribute>
@@ -118,6 +134,10 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.title__content">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="line-height">100%</xsl:attribute>
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
@@ -125,6 +145,10 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.title" use-attribute-sets="common.title common.border__bottom">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-before">15pt</xsl:attribute>
         <xsl:attribute name="space-before">12pt</xsl:attribute>
         <xsl:attribute name="space-after">5pt</xsl:attribute>
@@ -135,11 +159,19 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.title__content">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.title" use-attribute-sets="common.title">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-before">12pt</xsl:attribute>
         <xsl:attribute name="space-after">2pt</xsl:attribute>
         <xsl:attribute name="font-size">12pt</xsl:attribute>
@@ -148,9 +180,17 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.title__content">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.topic.title" use-attribute-sets="base-font common.title">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-before">10pt</xsl:attribute>
         <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
         <xsl:attribute name="font-weight">bold</xsl:attribute>
@@ -158,33 +198,57 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.topic.title__content">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.topic.topic.title" use-attribute-sets="base-font common.title">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
         <xsl:attribute name="font-weight">bold</xsl:attribute>
         <xsl:attribute name="keep-with-next.within-column">always</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.topic.topic.title__content">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.topic.topic.topic.title" use-attribute-sets="base-font common.title">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-style">italic</xsl:attribute>
         <xsl:attribute name="keep-with-next.within-column">always</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic.topic.topic.topic.topic.topic.title__content">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="section.title" use-attribute-sets="common.title">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-weight">bold</xsl:attribute>
         <xsl:attribute name="space-before">15pt</xsl:attribute>
         <xsl:attribute name="keep-with-next.within-column">always</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="example.title" use-attribute-sets="common.title">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-weight">bold</xsl:attribute>
         <xsl:attribute name="keep-with-next.within-column">always</xsl:attribute>
         <xsl:attribute name="space-after">5pt</xsl:attribute>
@@ -194,6 +258,10 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="fig.title" use-attribute-sets="base-font common.title">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-weight">bold</xsl:attribute>
         <xsl:attribute name="space-before">5pt</xsl:attribute>
         <xsl:attribute name="space-after">10pt</xsl:attribute>
@@ -201,6 +269,10 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topic" use-attribute-sets="base-font">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="titlealts" use-attribute-sets="common.border">
@@ -211,13 +283,25 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="navtitle__label">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-weight">bold</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="searchtitle">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="searchtitle__label">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-weight">bold</xsl:attribute>
     </xsl:attribute-set>
 
@@ -250,6 +334,10 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="example" use-attribute-sets="base-font common.border">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="line-height"><xsl:value-of select="$default-line-height"/></xsl:attribute>
         <xsl:attribute name="space-before">0.6em</xsl:attribute>
         <xsl:attribute name="start-indent">36pt + from-parent(start-indent)</xsl:attribute>
@@ -260,36 +348,60 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="desc">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="prolog" use-attribute-sets="base-font">
-        <xsl:attribute name="start-indent">72pt</xsl:attribute>
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
+        <!--<xsl:attribute name="start-indent">72pt</xsl:attribute>-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="p" use-attribute-sets="common.block">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="text-indent">0em</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="lq" use-attribute-sets="base-font common.border">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-before">10pt</xsl:attribute>
         <xsl:attribute name="padding-left">6pt</xsl:attribute>
-        <xsl:attribute name="start-indent">92pt</xsl:attribute>
+        <!--<xsl:attribute name="start-indent">92pt</xsl:attribute>-->
         <xsl:attribute name="end-indent">92pt</xsl:attribute>
         <xsl:attribute name="text-align">start</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="lq_simple" use-attribute-sets="base-font common.border">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-before">10pt</xsl:attribute>
         <xsl:attribute name="space-after">10pt</xsl:attribute>
         <xsl:attribute name="padding-left">6pt</xsl:attribute>
-        <xsl:attribute name="start-indent">92pt</xsl:attribute>
+        <!--<xsl:attribute name="start-indent">92pt</xsl:attribute>-->
         <xsl:attribute name="end-indent">92pt</xsl:attribute>
         <xsl:attribute name="text-align">start</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="lq_link" use-attribute-sets="base-font common.link">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-after">10pt</xsl:attribute>
         <xsl:attribute name="end-indent">92pt</xsl:attribute>
         <xsl:attribute name="text-align">end</xsl:attribute>
@@ -297,6 +409,10 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="lq_title" use-attribute-sets="base-font">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-after">10pt</xsl:attribute>
         <xsl:attribute name="end-indent">92pt</xsl:attribute>
         <xsl:attribute name="text-align">end</xsl:attribute>
@@ -305,82 +421,119 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="q">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="figgroup">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note" use-attribute-sets="common.block">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <!--<xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>-->
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__table" use-attribute-sets="common.block">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <!--<xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>-->
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__image__column">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="column-number">1</xsl:attribute>
         <xsl:attribute name="column-width">32pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__text__column">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
       <xsl:attribute name="column-number">2</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__image__entry">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="padding-right">5pt</xsl:attribute>
         <xsl:attribute name="start-indent">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__text__entry">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="start-indent">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
         <xsl:attribute name="font-weight">bold</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__note">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__notice">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__tip">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__fastpath">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__restriction">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__important">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__remember">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__attention">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__caution">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__danger">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__warning">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="note__label__other">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="pre" use-attribute-sets="base-font common.block">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="white-space-treatment">preserve</xsl:attribute>
         <xsl:attribute name="white-space-collapse">false</xsl:attribute>
         <xsl:attribute name="linefeed-treatment">preserve</xsl:attribute>
@@ -391,6 +544,7 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="__spectitle">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-weight">bold</xsl:attribute>
     </xsl:attribute-set>
 
@@ -415,6 +569,10 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="lines" use-attribute-sets="base-font">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="space-before">0.8em</xsl:attribute>
         <xsl:attribute name="space-after">0.8em</xsl:attribute>
 <!--        <xsl:attribute name="white-space-treatment">ignore-if-after-linefeed</xsl:attribute>-->
@@ -424,76 +582,124 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="keyword">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="term">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
         <xsl:attribute name="font-style">italic</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="ph">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="boolean">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
         <xsl:attribute name="color">green</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="state">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="border-left-width">0pt</xsl:attribute>
         <xsl:attribute name="border-right-width">0pt</xsl:attribute>
         <xsl:attribute name="color">red</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="alt">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="object">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
     </xsl:attribute-set>
 
     <xsl:attribute-set name="param">
     </xsl:attribute-set>
 
     <xsl:attribute-set name="draft-comment" use-attribute-sets="common.border">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="background-color">#FF99FF</xsl:attribute>
         <xsl:attribute name="color">#CC3333</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="draft-comment__label">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-weight">bold</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="required-cleanup">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="background">yellow</xsl:attribute>
         <xsl:attribute name="color">#CC3333</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="required-cleanup__label">
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="start-indent"><xsl:value-of select="$side-col-width"/></xsl:attribute>
+        <!--end-->
         <xsl:attribute name="font-weight">bold</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="fn">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-size">8pt</xsl:attribute>
         <xsl:attribute name="color">purple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="fn__id">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-style">italic</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="fn__callout">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="keep-with-previous.within-line">always</xsl:attribute>
         <xsl:attribute name="baseline-shift">super</xsl:attribute>
         <xsl:attribute name="font-size">75%</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="fn__body" use-attribute-sets="base-font">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="provisional-distance-between-starts">8mm</xsl:attribute>
         <xsl:attribute name="provisional-label-separation">2mm</xsl:attribute>
         <xsl:attribute name="line-height">1.2</xsl:attribute>
@@ -521,114 +727,150 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="indextermref">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-style">italic</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="cite">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-style">italic</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="concept">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="conbody" use-attribute-sets="body">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topichead">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topicgroup">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="topicmeta">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="searchtitle">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="searchtitle__label">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-weight">bold</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="publisher">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="copyright">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="copyryear">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="copyrholder">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="critdates">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="created">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="revised">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="permissions">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="category">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="audience">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="keywords">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="prodinfo">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="prodname">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="vrmlist">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="vrm">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="brand">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="series">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="platform">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="prognum">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="featnum">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="component">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="othermeta">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="resourceid">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="reference">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="refbody" use-attribute-sets="body">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="refsyn">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="metadata">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="image__float">
@@ -647,16 +889,18 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
 
     <xsl:attribute-set name="__unresolved__conref">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="color">#CC3333</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="__fo__root" use-attribute-sets="base-font">
-        <xsl:attribute name="font-family">serif</xsl:attribute>
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="xml:lang" select="translate($locale, '_', '-')"/>
         <xsl:attribute name="writing-mode" select="$writing-mode"/>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="__force__page__count">
+	<xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="force-page-count">
             <xsl:choose>
                 <xsl:when test="name(/*) = 'bookmap'">
