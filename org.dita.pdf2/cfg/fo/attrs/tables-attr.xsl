@@ -45,6 +45,7 @@ See the accompanying license.txt file for applicable licenses.
 
   <xsl:attribute-set name="common.table.head.entry">
     <xsl:attribute name="font-weight">bold</xsl:attribute>
+    <!--<xsl:attribute name="color">green</xsl:attribute>-->
   </xsl:attribute-set>
 
   <xsl:attribute-set name="table.title" use-attribute-sets="base-font common.title">
@@ -56,20 +57,20 @@ See the accompanying license.txt file for applicable licenses.
 
   <xsl:attribute-set name="__tableframe__none"/>
 
-  <xsl:attribute-set name="__tableframe__top" use-attribute-sets="common.border__top">
+  <xsl:attribute-set name="__tableframe__top" use-attribute-sets="table.rule__top"><!--use-attribute-sets="common.border__top"-->
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="__tableframe__bottom" use-attribute-sets="common.border__bottom">
+  <xsl:attribute-set name="__tableframe__bottom" use-attribute-sets="table.rule__bottom"><!--use-attribute-sets="common.border__bottom"-->
     <xsl:attribute name="border-after-width.conditionality">retain</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="thead__tableframe__bottom" use-attribute-sets="common.border__bottom">
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="__tableframe__left" use-attribute-sets="common.border__left">
+  <xsl:attribute-set name="__tableframe__left" use-attribute-sets="table.rule__left"><!--use-attribute-sets="common.border__left"-->
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="__tableframe__right" use-attribute-sets="common.border__right">
+  <xsl:attribute-set name="__tableframe__right" use-attribute-sets="table.rule__right"><!--use-attribute-sets="common.border__right"-->
   </xsl:attribute-set>
 
   <xsl:attribute-set name="table" use-attribute-sets="base-font">
@@ -93,19 +94,19 @@ See the accompanying license.txt file for applicable licenses.
   <xsl:attribute-set name="table__tableframe__topbot" use-attribute-sets="table__tableframe__top table__tableframe__bottom">
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="table__tableframe__top" use-attribute-sets="common.border__top">
+  <xsl:attribute-set name="table__tableframe__top" use-attribute-sets="table.frame__top"><!--use-attribute-sets="common.border__top"-->
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="table__tableframe__bottom" use-attribute-sets="common.border__bottom">
+  <xsl:attribute-set name="table__tableframe__bottom" use-attribute-sets="table.frame__bottom"><!--use-attribute-sets="common.border__bottom"-->
   </xsl:attribute-set>
 
   <xsl:attribute-set name="table__tableframe__sides" use-attribute-sets="table__tableframe__right table__tableframe__left">
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="table__tableframe__right" use-attribute-sets="common.border__right">
+  <xsl:attribute-set name="table__tableframe__right" use-attribute-sets="table.frame__right"><!--use-attribute-sets="common.border__right"-->
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="table__tableframe__left" use-attribute-sets="common.border__left">
+  <xsl:attribute-set name="table__tableframe__left" use-attribute-sets="table.frame__left"><!--use-attribute-sets="common.border__left"-->
   </xsl:attribute-set>
 
   <xsl:attribute-set name="tgroup.tbody">
@@ -122,6 +123,25 @@ See the accompanying license.txt file for applicable licenses.
 
   <xsl:attribute-set name="thead.row">
     <!--Head row-->
+    <!--Custom add-->
+    <xsl:attribute name="color">white</xsl:attribute>
+          
+    <xsl:attribute name="border-top-color">#0079C2</xsl:attribute>
+    <xsl:attribute name="border-top-style">hidden</xsl:attribute>
+    <xsl:attribute name="border-top-width">1.01pt</xsl:attribute>
+    
+    <xsl:attribute name="border-bottom-color">#0079C2</xsl:attribute>
+    <xsl:attribute name="border-bottom-style">hidden</xsl:attribute>
+    <xsl:attribute name="border-bottom-width">1.01pt</xsl:attribute>
+    
+    <xsl:attribute name="border-left-color">#0079C2</xsl:attribute>
+    <xsl:attribute name="border-left-style">hidden</xsl:attribute>
+    <xsl:attribute name="border-left-width">1pt</xsl:attribute>
+    
+    <xsl:attribute name="border-right-color">#0079C2</xsl:attribute>
+    <xsl:attribute name="border-right-style">hidden</xsl:attribute>
+    <xsl:attribute name="border-right-width">1pt</xsl:attribute>
+    <!--end--> 
   </xsl:attribute-set>
 
   <xsl:attribute-set name="tfoot.row">
@@ -130,11 +150,17 @@ See the accompanying license.txt file for applicable licenses.
 
   <xsl:attribute-set name="tbody.row">
     <!--Table body row-->
+    <!--custom add-->
+    <xsl:attribute name="border-bottom-style">solid</xsl:attribute>
+    <xsl:attribute name="border-bottom-width">1pt</xsl:attribute>
+    <xsl:attribute name="border-bottom-color">#0079C2</xsl:attribute>
+    <!--end-->
   </xsl:attribute-set>
 
   <xsl:attribute-set name="thead.row.entry">
     <!--head cell-->
-    <xsl:attribute name="background-color">antiquewhite</xsl:attribute>
+    <!--<xsl:attribute name="background-color">antiquewhite</xsl:attribute>-->
+    <xsl:attribute name="background-color">#0079C2</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="thead.row.entry__content" use-attribute-sets="common.table.body.entry common.table.head.entry">

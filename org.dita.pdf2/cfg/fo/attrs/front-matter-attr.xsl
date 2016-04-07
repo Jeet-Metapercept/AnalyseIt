@@ -34,12 +34,22 @@ See the accompanying license.txt file for applicable licenses.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:fo="http://www.w3.org/1999/XSL/Format"
     version="2.0">
-
+	
+	<!--Custom add-->
+    <xsl:attribute-set name="__coverImage">
+        <xsl:attribute name="text-align">center</xsl:attribute>
+        <xsl:attribute name="position">absolute</xsl:attribute>
+        <xsl:attribute name="top">300px</xsl:attribute>
+    </xsl:attribute-set>
+    <!--end-->
+    
     <xsl:attribute-set name="__frontmatter">
         <xsl:attribute name="text-align">center</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:attribute-set name="__frontmatter__title" use-attribute-sets="common.title">
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        
         <xsl:attribute name="space-before">80mm</xsl:attribute>
         <xsl:attribute name="space-before.conditionality">retain</xsl:attribute>
         <xsl:attribute name="font-size">22pt</xsl:attribute>

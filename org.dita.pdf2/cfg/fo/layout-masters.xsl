@@ -119,6 +119,7 @@ See the accompanying license.txt file for applicable licenses.
                 <fo:region-before region-name="last-body-header" xsl:use-attribute-sets="region-before"/>
                 <fo:region-after region-name="last-body-footer" xsl:use-attribute-sets="region-after"/>
             </fo:simple-page-master>
+			
 
             <!--INDEX simple masters-->
             <fo:simple-page-master master-name="index-first" xsl:use-attribute-sets="simple-page-master">
@@ -162,7 +163,6 @@ See the accompanying license.txt file for applicable licenses.
                 <fo:region-after region-name="odd-glossary-footer" xsl:use-attribute-sets="region-after"/>
             </fo:simple-page-master>
 
-
             <!--Sequences-->
           <xsl:call-template name="generate-page-sequence-master">
             <xsl:with-param name="master-name" select="'toc-sequence'"/>
@@ -192,8 +192,10 @@ See the accompanying license.txt file for applicable licenses.
             <xsl:with-param name="master-reference" select="'glossary'"/>
             <xsl:with-param name="last" select="false()"/>
           </xsl:call-template>
+		  	 	  		  
         </fo:layout-master-set>
     </xsl:template>
+
   
   <!-- Generate a page sequence master -->
   <xsl:template name="generate-page-sequence-master">
@@ -230,4 +232,5 @@ See the accompanying license.txt file for applicable licenses.
     
   </xsl:template>
   
+ 
 </xsl:stylesheet>
