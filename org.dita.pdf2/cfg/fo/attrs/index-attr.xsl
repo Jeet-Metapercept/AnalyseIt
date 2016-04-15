@@ -33,29 +33,57 @@ See the accompanying license.txt file for applicable licenses.
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="2.0">
 
+    <!--Custom add-->
+    <xsl:attribute-set name="index__title__lines__image__left">
+        <xsl:attribute name="position">absolute</xsl:attribute>
+        <xsl:attribute name="left">65pt</xsl:attribute>
+        <xsl:attribute name="text-align">start</xsl:attribute>
+        <xsl:attribute name="start-indent">20pt</xsl:attribute>        
+        <xsl:attribute name="top">-120px</xsl:attribute>
+    </xsl:attribute-set>
+    <!--end-->
+    
     <xsl:attribute-set name="__index__label">
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="space-before">20pt</xsl:attribute>
-        <xsl:attribute name="space-after">20pt</xsl:attribute>
+        <!--custom add-->
+        <xsl:attribute name="space-after">100pt</xsl:attribute>
+        <xsl:attribute name="start-indent">100pt</xsl:attribute>    
+        <xsl:attribute name="padding-top">20pt</xsl:attribute>       
+        <!--end-->
         <xsl:attribute name="space-after.conditionality">retain</xsl:attribute>
         <xsl:attribute name="font-size">20pt</xsl:attribute>
-        <xsl:attribute name="font-weight">bold</xsl:attribute>
+        <xsl:attribute name="font-weight">500</xsl:attribute>
         <xsl:attribute name="keep-with-next.within-column">always</xsl:attribute>
         <xsl:attribute name="span">all</xsl:attribute>
     </xsl:attribute-set>
 
-    <xsl:attribute-set name="__index__page__link" use-attribute-sets="common.link">
+    <xsl:attribute-set name="__index__page__link"> <!--use-attribute-sets="common.link">-->
+        <!--Custom add-->
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
+        <xsl:attribute name="font-size">5pt</xsl:attribute>
+        <!--end-->
+        <xsl:attribute name="font-style">italic</xsl:attribute>
         <xsl:attribute name="page-number-treatment">link</xsl:attribute>
-    </xsl:attribute-set>
+        </xsl:attribute-set>
 
     <xsl:attribute-set name="__index__letter-group">
+        <!--Custom add-->
+        <xsl:attribute name="start-indent">100pt</xsl:attribute>    
+        <!--end-->
+        <xsl:attribute name="color">#0079C2</xsl:attribute>
+        <xsl:attribute name="font-family">Apple</xsl:attribute>
         <xsl:attribute name="font-size">12pt</xsl:attribute>
-        <xsl:attribute name="font-weight">bold</xsl:attribute>
+        <xsl:attribute name="font-weight">500</xsl:attribute>
         <xsl:attribute name="space-after">7pt</xsl:attribute>
         <xsl:attribute name="keep-with-next.within-column">always</xsl:attribute>
     </xsl:attribute-set>
 
     <!-- FIXME: Incorrectly named, should be index.group -->
     <xsl:attribute-set name="index.entry">
+        <!--Custom add-->
+        <xsl:attribute name="start-indent">100pt</xsl:attribute>    
+        <!--end-->
         <xsl:attribute name="space-after">14pt</xsl:attribute>
         <xsl:attribute name="font-size">9pt</xsl:attribute>
     </xsl:attribute-set>
@@ -72,7 +100,7 @@ See the accompanying license.txt file for applicable licenses.
     </xsl:attribute-set>
     
     <xsl:attribute-set name="index.entry__content">
-        <xsl:attribute name="start-indent">18pt</xsl:attribute>
+        <xsl:attribute name="start-indent">12pt</xsl:attribute>
     </xsl:attribute-set>
 
   <xsl:attribute-set name="index.see-also-entry__content" use-attribute-sets="index.entry__content">

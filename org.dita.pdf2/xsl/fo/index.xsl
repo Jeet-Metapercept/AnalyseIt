@@ -197,6 +197,13 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:template match="opentopic-index:*" mode="index-postprocess"/>
 
   <xsl:template match="/" mode="index-postprocess">
+    <!--Custom add-->
+    <fo:block-container xsl:use-attribute-sets="index__title__lines__image__left">
+      <fo:block>
+        <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/headline_1.1.png)"/>
+      </fo:block> 
+    </fo:block-container>
+    <!--end-->
     <fo:block xsl:use-attribute-sets="__index__label" id="{$id.index}">
       <xsl:call-template name="insertVariable">
         <xsl:with-param name="theVariableID" select="'Index'"/>
@@ -625,6 +632,7 @@ See the accompanying license.txt file for applicable licenses.
             <xsl:call-template name="insertIndexStaticContents"/>
 
             <fo:flow flow-name="xsl-region-body">
+              
                 <fo:block xsl:use-attribute-sets="__index__label" id="{$id.index}">
                     <xsl:call-template name="insertVariable">
                         <xsl:with-param name="theVariableID" select="'Index'"/>

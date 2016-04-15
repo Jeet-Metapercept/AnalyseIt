@@ -188,8 +188,9 @@ See the accompanying license.txt file for applicable licenses.
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
-    <!--  Bookmap Chapter processing  -->
+	
+	
+	<!--  Bookmap Chapter processing  -->
     <xsl:template name="processTopicChapter">
         <fo:page-sequence master-reference="body-sequence" xsl:use-attribute-sets="__force__page__count">
             <xsl:call-template name="startPageNumbering"/>
@@ -217,13 +218,17 @@ See the accompanying license.txt file for applicable licenses.
                         <xsl:with-param name="type" select="'chapter'"/>
                     </xsl:call-template>
 
-                    <fo:block xsl:use-attribute-sets="topic.title">
+                    <!--<fo:block xsl:use-attribute-sets="topic.title">-->
+                    <!--custom add-->
+                     <fo:block xsl:use-attribute-sets="topic.title.hide">
+                    <!--end-->
                         <xsl:call-template name="pullPrologIndexTerms"/>
                         <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
                             <xsl:apply-templates select="." mode="getTitle"/>
-                        </xsl:for-each>
+                        </xsl:for-each> 
+                        
                     </fo:block>
-
+                    
                     <xsl:choose>
                       <xsl:when test="$chapterLayout='BASIC'">
                           <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
@@ -240,6 +245,7 @@ See the accompanying license.txt file for applicable licenses.
                 </fo:block>
             </fo:flow>
         </fo:page-sequence>
+       
     </xsl:template>
 
     <!--  Bookmap Appendix processing  -->
@@ -273,7 +279,10 @@ See the accompanying license.txt file for applicable licenses.
                         <xsl:with-param name="type" select="'appendix'"/>
                     </xsl:call-template>
 
-                    <fo:block xsl:use-attribute-sets="topic.title">
+                    <!--<fo:block xsl:use-attribute-sets="topic.title">-->
+                    <!--Custom add-->
+                        <fo:block xsl:use-attribute-sets="topic.title">
+                     <!--end-->
                         <xsl:call-template name="pullPrologIndexTerms"/>
                         <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
                             <xsl:apply-templates select="." mode="getTitle"/>
@@ -488,18 +497,57 @@ See the accompanying license.txt file for applicable licenses.
             </xsl:attribute>
             <xsl:choose>
                 <xsl:when test="$type = 'chapter'">
-                    <fo:block xsl:use-attribute-sets="__chapter__frontmatter__name__container">
+                    <!--Custom add-->
+                    <fo:block-container xsl:use-attribute-sets="__title__lines__image__left">
+                        <fo:block>
+                            <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/headline_1.1.png)"/>
+                        </fo:block> 
+                    </fo:block-container>
+                    <!--end-->
+                    <!--Custom add-->
+                    <fo:block-container xsl:use-attribute-sets="__chapter__frontmatter__title__name__container">
+                            <fo:block xsl:use-attribute-sets="topic.title">
+                                     <xsl:value-of select="*[contains(@class,' topic/title ')]"/>
+                            </fo:block>
+                    </fo:block-container>
+                    <!--end-->
+                    
+                    <!--Custom add-->
+                    <fo:block-container xsl:use-attribute-sets="__title__lines__image__right">
+                        <fo:block>
+                            <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/headline_1.1.png)"/>
+                        </fo:block>
+                    </fo:block-container>
+                    <!--end-->
+<!--                    <fo:block-container xsl:use-attribute-sets="__chapter__frontmatter__name__container">-->
+                    <fo:block-container xsl:use-attribute-sets="__chapter__frontmatter__number__container">
                         <xsl:call-template name="insertVariable">
                             <xsl:with-param name="theVariableID" select="'Chapter with number'"/>
                             <xsl:with-param name="theParameters">
                                 <number>
-                                    <fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
+                                    <!--<fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
+                                        <xsl:apply-templates select="key('map-id', @id)[1]" mode="topicTitleNumber"/>
+				                     </fo:block>-->
+									                                    
+                                        <!--<fo:inline xsl:use-attribute-sets="topic.title">
+                                            <xsl:value-of select="*[contains(@class,' topic/title ')]"/>
+                                        </fo:inline>-->
+                                    
+                                    <!--custom add-->
+                                    <xsl:text></xsl:text>
+                                    <fo:block padding-top="0.5cm" font-size="20pt" font-weight="500">
+                                        <xsl:text>Chapter </xsl:text>
+                                    </fo:block>
+                                    
+                                    <fo:block padding-top="-0.15cm">
                                         <xsl:apply-templates select="key('map-id', @id)[1]" mode="topicTitleNumber"/>
                                     </fo:block>
+                                    <!--end-->
                                 </number>
                             </xsl:with-param>
                         </xsl:call-template>
-                    </fo:block>
+                    </fo:block-container>
+                    
                 </xsl:when>
                 <xsl:when test="$type = 'appendix'">
                         <fo:block xsl:use-attribute-sets="__chapter__frontmatter__name__container">
@@ -507,9 +555,14 @@ See the accompanying license.txt file for applicable licenses.
                                 <xsl:with-param name="theVariableID" select="'Appendix with number'"/>
                                 <xsl:with-param name="theParameters">
                                     <number>
-                                        <fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
+                                        <!--<fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
                                             <xsl:apply-templates select="key('map-id', @id)[1]" mode="topicTitleNumber"/>
-                                        </fo:block>
+                                        </fo:block>-->
+                                        <!--custom add-->
+                                        <fo:inline xsl:use-attribute-sets="__chapter__frontmatter__number__container">
+                                            <xsl:apply-templates select="key('map-id', @id)[1]" mode="topicTitleNumber"/>
+                                        </fo:inline>
+                                        <!--end-->
                                     </number>
                                 </xsl:with-param>
                             </xsl:call-template>
@@ -530,14 +583,19 @@ See the accompanying license.txt file for applicable licenses.
                 </fo:block>
               </xsl:when>
                 <xsl:when test="$type = 'part'">
-                        <fo:block xsl:use-attribute-sets="__chapter__frontmatter__name__container">
+                    <fo:block border-top-style="solid" border-color="#0079C2" xsl:use-attribute-sets="__chapter__frontmatter__name__container">
                             <xsl:call-template name="insertVariable">
                                 <xsl:with-param name="theVariableID" select="'Part with number'"/>
                                 <xsl:with-param name="theParameters">
                                     <number>
-                                        <fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
+                                        <!--<fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
                                             <xsl:apply-templates select="key('map-id', @id)[1]" mode="topicTitleNumber"/>
-                                        </fo:block>
+                                        </fo:block>-->
+                                        <!--custom add-->
+                                        <fo:inline xsl:use-attribute-sets="__chapter__frontmatter__number__container">
+                                            <xsl:apply-templates select="key('map-id', @id)[1]" mode="topicTitleNumber"/>
+                                        </fo:inline>
+                                        <!--end-->
                                     </number>
                                 </xsl:with-param>
                             </xsl:call-template>
@@ -702,7 +760,7 @@ See the accompanying license.txt file for applicable licenses.
                 </fo:inline>
                 <xsl:call-template name="pullPrologIndexTerms"/>
                 <xsl:apply-templates select="." mode="getTitle"/>
-            </fo:block>
+                </fo:block>
         </fo:block>
     </xsl:template>
 
@@ -1595,7 +1653,7 @@ See the accompanying license.txt file for applicable licenses.
                         <fo:table-row>
                                 <fo:table-cell xsl:use-attribute-sets="note__image__entry">
                                     <fo:block>
-                                        <fo:external-graphic src="url({concat($artworkPrefix, $noteImagePath)})" xsl:use-attribute-sets="image"/>
+                                        <fo:external-graphic src="url({concat($artworkPrefix, $noteImagePath)})"/> <!--xsl:use-attribute-sets="image"-->
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="note__text__entry">
@@ -1701,7 +1759,9 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:template match="*[contains(@class,' topic/pre ')]">
         <xsl:call-template name="setSpecTitle"/>
         <xsl:variable name="attrSets">
+            <!--Custom remove-->
             <xsl:call-template name="setFrame"/>
+            <!--end-->
         </xsl:variable>
         <fo:block xsl:use-attribute-sets="pre">
             <xsl:call-template name="commonattributes"/>
@@ -1734,17 +1794,21 @@ See the accompanying license.txt file for applicable licenses.
 
     <!-- Process the frame attribute -->
     <!-- frame styles (setframe) must be called within a block that defines the content being framed -->
+    <!--Custom remove-->
     <xsl:template name="setFrame">
         <xsl:if test="contains(@frame,'top')"> __border__top </xsl:if>
         <xsl:if test="contains(@frame,'bot')"> __border__bot </xsl:if>
         <xsl:if test="contains(@frame,'sides')"> __border__sides </xsl:if>
         <xsl:if test="contains(@frame,'all')"> __border__all </xsl:if>
     </xsl:template>
+    <!--end-->
 
     <xsl:template match="*[contains(@class,' topic/lines ')]">
         <xsl:call-template name="setSpecTitle"/>
         <xsl:variable name="attrSets">
+            <!--Custom remove-->
             <xsl:call-template name="setFrame"/>
+            <!--end-->
         </xsl:variable>
         <fo:block xsl:use-attribute-sets="lines">
             <xsl:call-template name="commonattributes"/>

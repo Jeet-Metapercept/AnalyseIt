@@ -50,6 +50,7 @@ See the accompanying license.txt file for applicable licenses.
         <xsl:call-template name="insertBodyLastHeader"/>
         <xsl:call-template name="insertBodyLastFooter"/>
     </xsl:template>
+    
 
     <xsl:template name="insertTocStaticContents">
         <xsl:call-template name="insertTocOddFooter"/>
@@ -190,7 +191,8 @@ See the accompanying license.txt file for applicable licenses.
                         </pagenum>
                     </xsl:with-param>
                 </xsl:call-template>
-            </fo:block>
+				
+				</fo:block>
         </fo:static-content>
 
     </xsl:template>
@@ -208,12 +210,21 @@ See the accompanying license.txt file for applicable licenses.
                             </fo:inline>
                         </heading>
                         <pagenum>
-                            <fo:inline xsl:use-attribute-sets="__body__first__footer__pagenum">
+                            <fo:block-container  xsl:use-attribute-sets="__body__first__footer__pagenum">
+                            <fo:block>
                                 <fo:page-number/>
-                            </fo:inline>
+                            </fo:block>
+                            </fo:block-container>
                         </pagenum>
                     </xsl:with-param>
                 </xsl:call-template>
+                <!--Custom add-->
+                <fo:block-container xsl:use-attribute-sets="odd__footer__image">
+                    <fo:block>
+                        <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/Analyse_It_Footer_line_1.0.png)"/>
+                    </fo:block>
+                </fo:block-container>
+                <!--end-->
             </fo:block>
         </fo:static-content>
 
@@ -241,25 +252,45 @@ See the accompanying license.txt file for applicable licenses.
         </fo:static-content>
     </xsl:template>
 
+		
     <xsl:template name="insertBodyOddFooter">
-
+		
         <fo:static-content flow-name="odd-body-footer">
+            <!--Custom add-->
+            <fo:block-container xsl:use-attribute-sets="__body__footer__text">
+                <fo:block>
+                    <fo:retrieve-marker retrieve-class-name="current-header"/>
+                </fo:block>   
+            </fo:block-container>
+            <!--end-->
             <fo:block xsl:use-attribute-sets="__body__odd__footer">
                 <xsl:call-template name="insertVariable">
                     <xsl:with-param name="theVariableID" select="'Body odd footer'"/>
                     <xsl:with-param name="theParameters">
-                        <heading>
+                        <!--<heading>
                             <fo:inline xsl:use-attribute-sets="__body__odd__footer__heading">
                                 <fo:retrieve-marker retrieve-class-name="current-header"/>
                             </fo:inline>
-                        </heading>
+                        </heading>-->
                         <pagenum>
-                            <fo:inline xsl:use-attribute-sets="__body__odd__footer__pagenum">
-                                <fo:page-number/>
-                            </fo:inline>
+                            <fo:block-container xsl:use-attribute-sets="__body__odd__footer__pagenum">
+                                <fo:block>
+                                    <fo:page-number/>
+                                </fo:block>
+                            </fo:block-container>   
+                         
                         </pagenum>
                     </xsl:with-param>
                 </xsl:call-template>
+                
+                <!--Custom add-->
+                <fo:block-container xsl:use-attribute-sets="odd__footer__image">
+                    <fo:block>
+                        <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/Analyse_It_Footer_line_1.0.png)"/>
+                    </fo:block>
+                </fo:block-container>
+                <!--end-->
+
             </fo:block>
         </fo:static-content>
 
@@ -268,23 +299,60 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:template name="insertBodyEvenFooter">
 
         <fo:static-content flow-name="even-body-footer">
-            <fo:block xsl:use-attribute-sets="__body__even__footer">
+           <!-- <fo:block xsl:use-attribute-sets="__body__even__footer">-->
+                <!--Custom add-->
+                <fo:block-container xsl:use-attribute-sets="even__footer__image">
+                    <fo:block>
+                        <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/Analyse_It_Footer_line.png)"/>
+                    </fo:block>
+                </fo:block-container>
+                <!--end-->
                 <xsl:call-template name="insertVariable">
                     <xsl:with-param name="theVariableID" select="'Body even footer'"/>
                     <xsl:with-param name="theParameters">
-                        <heading>
+                       <!-- <heading>
                             <fo:inline xsl:use-attribute-sets="__body__even__footer__heading">
                                 <fo:retrieve-marker retrieve-class-name="current-header"/>
                             </fo:inline>
-                        </heading>
+                        </heading>-->
                         <pagenum>
-                            <fo:inline xsl:use-attribute-sets="__body__even__footer__pagenum">
-                                <fo:page-number/>
-                            </fo:inline>
+                            <fo:block-container xsl:use-attribute-sets="__body__even__footer__pagenum">
+                                 <fo:block>
+                                     <fo:page-number/>
+                                 </fo:block>
+                            </fo:block-container>
                         </pagenum>
                     </xsl:with-param>
                 </xsl:call-template>
-            </fo:block>
+                
+                <!--Custom add-->
+            <fo:block-container xsl:use-attribute-sets="__body__footer__text">
+                <fo:block>
+                    <!--<fo:retrieve-marker retrieve-class-name="current-header"/>-->
+                    
+                <xsl:value-of>
+                    <xsl:apply-templates select="$map/*[contains(@class, ' bookmap/booktitle ')]"/>
+                </xsl:value-of>
+                </fo:block>  
+            </fo:block-container>
+                <!--end-->
+                
+                
+                <!--<!-\-Custom add-\->
+                <fo:block-container xsl:use-attribute-sets="even__footer__image">
+                    <fo:block>
+                        <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/Analyse_It_Footer_line.png)"/>
+                    </fo:block>
+                </fo:block-container>
+                <!-\-end-\->-->
+                
+                <!--<!-\-Custom add-\->
+                <fo:block xsl:use-attribute-sets="__body__footer__text">
+                    <fo:retrieve-marker retrieve-class-name="current-header"/>
+                </fo:block>   
+                <!-\-end-\->-->
+            <!--</fo:block>-->
+            
         </fo:static-content>
 
     </xsl:template>

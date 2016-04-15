@@ -46,12 +46,28 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:variable name="map" select="//opentopic:map"/>
 
     <xsl:template name="createTocHeader">
+        <!--Custom add-->
+        <fo:block-container xsl:use-attribute-sets="toc__title__lines__image__left">
+            <fo:block>
+                <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/headline_1.1.png)"/>
+            </fo:block> 
+        </fo:block-container>
+        <!--end-->
+        
         <fo:block xsl:use-attribute-sets="__toc__header" id="{$id.toc}">
             <xsl:call-template name="insertVariable">
                 <xsl:with-param name="theVariableID" select="'Table of Contents'"/>
             </xsl:call-template>
         </fo:block>
-    </xsl:template>
+        <!--<!-\-Custom add-\->
+        <fo:block-container xsl:use-attribute-sets="toc__title__lines__image__right">
+            <fo:block>
+                <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/headline_1.1.png)"/>
+            </fo:block>
+        </fo:block-container>
+        <!-\-end-\->-->    
+        
+        </xsl:template>
 
     <xsl:template match="/" mode="toc">
         <xsl:apply-templates mode="toc">
@@ -73,22 +89,44 @@ See the accompanying license.txt file for applicable licenses.
                               (not($mapTopicref) and $include = 'true')">
                     <fo:block xsl:use-attribute-sets="__toc__indent">
                         <xsl:variable name="tocItemContent">
+                            <!--Custom add-->
+                            <fo:inline xsl:use-attribute-sets="__toc__page-number">
+                                <!--<fo:leader xsl:use-attribute-sets="__toc__leader"/>-->
+                                <fo:page-number-citation>
+                                    <xsl:attribute name="ref-id">
+                                        <xsl:call-template name="generate-toc-id"/>
+                                    </xsl:attribute>
+                                </fo:page-number-citation>
+                            </fo:inline>
+                            <fo:leader xsl:use-attribute-sets="__toc__leader"/>
+                            <!--end-->
                           <fo:basic-link xsl:use-attribute-sets="__toc__link">
                             <xsl:attribute name="internal-destination">
                               <xsl:call-template name="generate-toc-id"/>
                             </xsl:attribute>
                             <xsl:apply-templates select="$mapTopicref" mode="tocPrefix"/>
+                              <!--<!-\-Custom add-\->
+                              <fo:inline xsl:use-attribute-sets="__toc__page-number">
+                                  <!-\-<fo:leader xsl:use-attribute-sets="__toc__leader"/>-\->
+                                  <fo:page-number-citation>
+                                      <xsl:attribute name="ref-id">
+                                          <xsl:call-template name="generate-toc-id"/>
+                                      </xsl:attribute>
+                                  </fo:page-number-citation>
+                              </fo:inline>
+                            <!-\-end-\->-->  
                             <fo:inline xsl:use-attribute-sets="__toc__title">
+                                <!--<fo:leader xsl:use-attribute-sets="__toc__leader"/>-->
                                 <xsl:call-template name="getNavTitle" />
                             </fo:inline>
-                            <fo:inline xsl:use-attribute-sets="__toc__page-number">
+    <!--  default -->          <!-- <fo:inline xsl:use-attribute-sets="__toc__page-number">
                                 <fo:leader xsl:use-attribute-sets="__toc__leader"/>
                                 <fo:page-number-citation>
                                   <xsl:attribute name="ref-id">
                                     <xsl:call-template name="generate-toc-id"/>
                                   </xsl:attribute>
                                 </fo:page-number-citation>
-                            </fo:inline>
+                            </fo:inline>-->
                         </fo:basic-link>
                         </xsl:variable>
                         <xsl:choose>

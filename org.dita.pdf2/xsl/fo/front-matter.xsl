@@ -99,6 +99,7 @@ See the accompanying license.txt file for applicable licenses.
                     <fo:flow flow-name="xsl-region-body">
                         <fo:block xsl:use-attribute-sets="__frontmatter">
                             <!-- set the title -->
+				                 					 
                             <fo:block xsl:use-attribute-sets="__frontmatter__title">
                                 <xsl:choose>
                                     <xsl:when test="//*[contains(@class, ' map/map ')]/@title">
@@ -129,6 +130,14 @@ See the accompanying license.txt file for applicable licenses.
             <xsl:call-template name="insertFrontMatterStaticContents"/>
             <fo:flow flow-name="xsl-region-body">
                 <fo:block xsl:use-attribute-sets="__frontmatter">
+                    <!--custom add-->
+                    <!-- cover image -->
+                    <fo:block-container xsl:use-attribute-sets="__coverImage">
+                        <fo:block>
+                            <fo:external-graphic src="url(Customization/OpenTopic/common/artwork/Analyse-it-300dpi.png)"/>
+                        </fo:block>
+                    </fo:block-container>
+                    <!--end-->
                     <!-- set the title -->
                     <fo:block xsl:use-attribute-sets="__frontmatter__title">
                         <xsl:choose>
