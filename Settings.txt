@@ -1,0 +1,42 @@
+::Parameters::
+
+Name					value
+
+args.bookmap-order			discard
+args.bookmark.style			collapsed
+args.chapter.layout			basic
+args.debug				no
+args.draft				no
+args.fingurelink.style			number
+args.filter
+args.fo.userconfig
+args.gen.task.lbl			no
+args.grammar.cache			yes
+args.input				${cf}
+args.input.dir
+args.rellinks				none
+args.tablelink.style			number
+args.xsl.pdf
+clean.output				no
+clean.temp				yes
+custom.xep.config
+customization.dir
+dita.dir				${configured.ditaot.dir}
+dita.ext				.xml
+dita.input.valfile
+dita.temp.dir
+fix.external.refs.com.oxygenxml		false
+generate.copy.outer			1
+generate-debug-attributes		true
+onlytopic.in.map			no
+org.dita.pdf2.use-out-temp		false
+outer.control				warn
+output.dir
+pdf.formatter				fop
+processing-mode				lax
+publish.required.cleanup
+retain.topic.fo				no
+transtype
+validate				yes
+xep.faulOnError				true
+

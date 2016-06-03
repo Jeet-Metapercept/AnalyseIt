@@ -1,0 +1,80 @@
+
+						======================================================
+							Anlsyse-It DITA-XML XSLT Plugin Read Me
+						======================================================
+
+--------------------------
+About the plugin
+--------------------------
+
+This plugin is a set of XSLT, XFO and CSS modules intended to provide new transformation scenario for Analyse-It's DITA-XML based technical publication system.  The plugin strive to be simple, well documented and modification friendly, in order to help Technical Writers/ DITA Information Architects quickly learn the XSL workings.
+
+-----------------------
+Fonts used
+-----------------------
+Font library has been downloaded from: https://www.google.com/fonts/specimen/Raleway
+
+
+
+------------------------------
+How To Install The Plugin
+------------------------------
+
+1. Run and install package plugin.exe
+
+2. Locate Dita-OT pdf plugin in your diractory (org.dita.pdf2)
+
+3. Copy and replace org.dita.pdf2 (create a backup if required)   
+
+4. Import transformation scenarios "Dita-Map PDF Analyse-it" into oXygen XML
+
+5. Save and run Transformation.
+
+
+------------------------------------------------------------
+Editable Transformation Scenario Parameters
+------------------------------------------------------------
+If after installing the plugin, output is not generating appropriately, then verify if following parameters are defined as mentioned below.
+
+Name					value
+
+args.bookmap-order			discard
+args.bookmark.style			collapsed
+args.chapter.layout			basic
+args.debug				no
+args.draft				no
+args.fingurelink.style			number
+args.filter
+args.fo.userconfig
+args.gen.task.lbl			no
+args.grammar.cache			yes
+args.input				${cf}
+args.input.dir
+args.rellinks				none
+args.tablelink.style			number
+args.xsl.pdf
+clean.output				no
+clean.temp				yes
+custom.xep.config
+customization.dir
+dita.dir				${configured.ditaot.dir}
+dita.ext				.xml
+dita.input.valfile
+dita.temp.dir
+fix.external.refs.com.oxygenxml		false
+generate.copy.outer			1
+generate-debug-attributes		true
+onlytopic.in.map			no
+org.dita.pdf2.use-out-temp		false
+outer.control				warn
+output.dir
+pdf.formatter				fop
+processing-mode				lax
+publish.required.cleanup
+retain.topic.fo				no
+transtype
+validate				yes
+xep.faulOnError				true
+
+
+
